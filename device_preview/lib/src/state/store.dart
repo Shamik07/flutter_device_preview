@@ -9,6 +9,7 @@ import '../../device_preview.dart';
 import '../storage/storage.dart';
 import 'custom_device.dart';
 import 'state.dart';
+import '../../device_preview.dart' as device_preview;
 
 /// The store is a container for the current [state] of the device preview.
 ///
@@ -74,7 +75,7 @@ class DevicePreviewStore extends ChangeNotifier {
                 .where((x) => x != null)
                 .toList()
             : defaultAvailableLocales;
-        final defaultLocale = basicLocaleListResolution(
+        final defaultLocale = device_preview.basicLocaleListResolution(
           WidgetsBinding.instance.window.locales,
           availaiableLocales.map((x) => x.locale).toList(),
         )?.toString();
